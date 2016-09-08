@@ -1,0 +1,12 @@
+<h1><%= @contribution.username %></h1>
+<p><%= @contribution.image_url %></p>
+<p><%= @contribution.content %></p>
+
+
+
+<p><%= link_to "Edit", edit_story_contribution_path(@story, @contribution) %></p>
+<p><%= link_to "Delete", story_contribution_path(@story, @contribution), :data => {:confirm => "You sure?", :method => "delete"} %></p>
+
+
+
+<%= link_to "Return to #{@story.title}", story_path(@contribution.story) %>
