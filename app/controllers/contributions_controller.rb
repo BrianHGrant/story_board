@@ -10,7 +10,6 @@ class ContributionsController < ApplicationController
   def create
     @story = Story.find(params[:story_id])
     @contribution = @story.contributions.new(contribution_params)
-    binding.pry
     if @contribution.save
       redirect_to story_path(@contribution.story)
     else

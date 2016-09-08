@@ -8,5 +8,11 @@
 <p><%= link_to "Delete", story_contribution_path(@story, @contribution), :data => {:confirm => "You sure?", :method => "delete"} %></p>
 
 
+<h4>Comments</h4>
+<% @contribution.comments.each do |comment| %>
+  <p><%= comment.content %></p>
+  <p><%= comment.username %></p>
+<% end %>
+<p><%= link_to "Add Comment", new_story_contribution_comment_path(@story, @contribution) %></p>
 
 <%= link_to "Return to #{@story.title}", story_path(@contribution.story) %>

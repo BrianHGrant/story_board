@@ -17,6 +17,16 @@
 <p><%= link_to "Edit", edit_story_path(@story) %></p>
 <p><%= link_to "Delete", story_path(@story), :data => {:confirm => "You sure?", :method => "delete"} %></p>
 
+<h4>Comments</h4>
+<% @story.comments.each do |comment| %>
+  <p><%= comment.content %></p>
+  <p><%= comment.username %></p>
+<% end %>
+<p><%= link_to "Add Comment", new_story_comment_path(@story) %></p>
+
+
+
+
 
 
 <%= link_to "Return to Stories", stories_path %>
