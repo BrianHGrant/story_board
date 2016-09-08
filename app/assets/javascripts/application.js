@@ -15,3 +15,9 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+$(function() {
+  $('.contribution-link').click(function(event) {
+    event.preventDefault();
+    $(this).children().toggle();
+  });
+});
