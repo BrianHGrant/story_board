@@ -1,7 +1,7 @@
 <h1><%= @story.title %></h1>
 <p>
   <% @story.contributions.each do |contrib| %>
-    <%= link_to contrib.name, story_contribution_path(@story, contrib)%>
+    <%= link_to contrib.content, story_contribution_path(@story, contrib)%>
   <% end %>
 </p>
 

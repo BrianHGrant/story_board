@@ -43,7 +43,7 @@ class ContributionsController < ApplicationController
 
   private
   def contribution_params
-    params.require(:contribution).permit(:name, :address, :phone_number, :web_address, :hours)
+    params.require(:contribution).permit(:image_url, :username, :content)
   end
 
 end
