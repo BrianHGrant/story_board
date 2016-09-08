@@ -3,11 +3,14 @@ class ContributionsController < ApplicationController
   def new
     @story = Story.find(params[:story_id])
     @contribution = @story.contributions.new
+    @rss = Urss.at("http://www.flikr.com/services/feeds/photos_public.gne?format=rss_200"); true
+    @rss_url = @rss.entries.first.medias.first.content_url
   end
 
   def create
     @story = Story.find(params[:story_id])
     @contribution = @story.contributions.new(contribution_params)
+    binding.pry
     if @contribution.save
       redirect_to story_path(@contribution.story)
     else

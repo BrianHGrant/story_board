@@ -1,8 +1,7 @@
 <%= render "layouts/errors", :object => @contribution %>
 
 <%= form_for [@story, @contribution] do |f| %>
-  <%= f.label :image_url %>
-  <%= f.text_field :image_url %>
+  <%= f.hidden_field :image_url, :value => @rss_url %>
   <%= f.label :username %>
   <%= f.text_field :username %>
   <%= f.label :content %>

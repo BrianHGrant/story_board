@@ -6,6 +6,7 @@ class StoriesController < ApplicationController
 
   def show
     @story = Story.find(params[:id])
+    @contributions = Story.find(params[:id]).contributions.order(created_at: :asc)
   end
 
   def new

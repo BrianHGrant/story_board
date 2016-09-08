@@ -1,5 +1,5 @@
 <h1><%= @contribution.username %></h1>
-<p><%= @contribution.image_url %></p>
+<p><%= image_tag(@contribution.image_url, size: "400x400") %></p>
 <p><%= @contribution.content %></p>
 
 
