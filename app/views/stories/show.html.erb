@@ -1,32 +1,32 @@
-<h1><%= @story.title %></h1>
-<div>
-  <% @contributions.each do |contrib| %>
-    <span class="contribution-link">
-      <%= contrib.content %>
-      <div class="contribution-details">
-        <%= image_tag contrib.image_url,size: "80x80" %>
-        <%= contrib.username %>
-        <%= link_to "View Comments", story_contribution_path(@story, contrib)%>
-      </div>
-    </span>
-  <% end %>
+<div class="row">
+  <h1><%= @story.title %></h1>
+  <div class="col-sm-8">
+    <div>
+      <% @contributions.each do |contrib| %>
+        <span class="contribution-link">
+          <%= contrib.content %>
+          <div class="contribution-details">
+            <%= image_tag contrib.image_url,size: "80x80" %>
+            <%= contrib.username %>
+            <%= link_to "View Comments", story_contribution_path(@story, contrib)%>
+          </div>
+        </span>
+      <% end %>
+    </div>
+
+    <p>
+      <%= link_to "Contribute to Story", new_story_contribution_path(@story), :class => "btn btn-primary" %>
+      <%= link_to "Edit", edit_story_path(@story), :class => "btn btn-warning" %>
+      <%= link_to "Delete", story_path(@story), :data => {:confirm => "You sure?", :method => "delete"}, :class => "btn btn-danger" %>
+    </p>
+  </div>
+
+  <div class="col-sm-4">
+    <h3>Comments</h3>
+    <% @story.comments.each do |comment| %>
+      <p><%= comment.content %></p>
+      <p><%= comment.username %></p>
+    <% end %>
+    <p><%= link_to "Add Comment", new_story_comment_path(@story) %></p>
+  </div>
 </div>
-
-<p><%= link_to "Contribute to Story", new_story_contribution_path(@story) %></p>
-
-<p><%= link_to "Edit", edit_story_path(@story) %></p>
-<p><%= link_to "Delete", story_path(@story), :data => {:confirm => "You sure?", :method => "delete"} %></p>
-
-<h4>Comments</h4>
-<% @story.comments.each do |comment| %>
-  <p><%= comment.content %></p>
-  <p><%= comment.username %></p>
-<% end %>
-<p><%= link_to "Add Comment", new_story_comment_path(@story) %></p>
-
-
-
-
-
-
-<%= link_to "Return to Stories", stories_path %>

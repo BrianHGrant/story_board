@@ -28,28 +28,6 @@ class CommentsController < ApplicationController
         render :new
       end
     end
-
-  end
-
-  def edit
-    @story = Story.find(params[:story_id])
-    @contribution = Contribution.find(params[:id])
-  end
-
-  def update
-    @story = Story.find(params[:story_id])
-    @contribution= Contribution.find(params[:id])
-    if @contribution.update(contribution_params)
-      redirect_to story_contribution_path(@story, @contribution)
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @contribution = Contribution.find(params[:id])
-    @contribution.destroy
-    redirect_to story_path(@contribution.story)
   end
 
   private

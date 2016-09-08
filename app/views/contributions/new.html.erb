@@ -1,4 +1,10 @@
-<h1>New Contribution</h1>
+<h1 class="text-center">New Contribution</h1>
 
-<%= image_tag(@rss_url, size: "400x400") %>
-<%= render 'form' %>
+<div class="row">
+  <div class="col-sm-6">
+    <%= image_tag(@rss_url, size: "400x400") %>
+  </div>
+  <div class="col-sm-6">
+    <%= render 'form' %>
+  </div>
+</div>

@@ -1,9 +1,13 @@
 <%= render "layouts/errors", :object => @comment %>
 
 <%= form_for [@story, @contribution, @comment] do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :content %>
-  <%= f.text_field :content %>
-  <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :username %>
+    <%= f.text_field :username, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_field :content, :class => "form-control" %>
+  </div>
+  <%= f.submit, :class => "btn btn-success" %>
 <% end %>

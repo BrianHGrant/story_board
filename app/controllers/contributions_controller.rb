@@ -25,6 +25,7 @@ class ContributionsController < ApplicationController
   def edit
     @story = Story.find(params[:story_id])
     @contribution = Contribution.find(params[:id])
+    @rss_url = @contribution.image_url
   end
 
   def update
